@@ -1,16 +1,16 @@
 import {inject} from '@loopback/core';
 import {DefaultCrudRepository} from '@loopback/repository';
 import {RoamsDataSource} from '../datasources';
-import {Todo, TodoRelations} from '../models/todo.model';
+import {Users, UsersRelations} from '../models';
 
-export class TodoRepository extends DefaultCrudRepository<
-  Todo,
-  typeof Todo.prototype.id,
-  TodoRelations
+export class UsersRepository extends DefaultCrudRepository<
+  Users,
+  typeof Users.prototype.id,
+  UsersRelations
 > {
   constructor(
     @inject('datasources.roams') dataSource: RoamsDataSource,
   ) {
-    super(Todo, dataSource);
+    super(Users, dataSource);
   }
 }
